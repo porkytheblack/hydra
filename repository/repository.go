@@ -34,7 +34,7 @@ func (repo *Repository) InitRepo() {
 		log.Fatalf("Unable to initialize DB %s", err)
 	}
 
-	db.RunMigrations(_db)
+	// db.RunMigrations(_db)
 
 	repo.DB = _db
 }

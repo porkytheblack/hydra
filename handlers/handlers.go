@@ -20,6 +20,11 @@ var ApiHandlers []ApiHandler = []ApiHandler{
 			return ctx.SendString("Hello World")
 		},
 	},
+	{
+		Method: "POST",
+		Path: "/profile",
+		Handler: CreateProfile,
+	},
 }
 
 

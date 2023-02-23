@@ -23,14 +23,16 @@ func NewConnection ( config *Config ) (*gorm.DB, error) {
 		config.Host, config.Port, config.User, config.Password, config.DBName, 
 	)
 
-	fmt.Printf("DSN IS:: %s", dsn)
+	fmt.Printf("\n\nDSN IS:: %s\n\n", dsn)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	if err != nil {
-		log.Printf("\nAn error occured::%s\n", err)
+		log.Printf("\n\nAn error occured::%s\n\n", err)
 		return nil, err
 	}
+
+	log.Printf("\n\nConnected to DB Successfully!!\n\n");
 
 	return db, nil
 }

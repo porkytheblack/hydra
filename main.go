@@ -15,7 +15,7 @@ func main() {
 	app := fiber.New()
 	repo.InitRepo()
 	repo.SetupRoutes(app)
-	app.Listen(":8080")
+	app.Listen("0.0.0.0:8080")
 
 
 }	
