@@ -25,6 +25,8 @@ func loadEnv() {
 
 	env := os.Getenv("GO_ENV")
 
+	fmt.Printf("The current environment is:: %s\n", env)
+
 	if env == "" {
 		err := godotenv.Load(".env")
 
