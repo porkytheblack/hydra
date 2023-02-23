@@ -10,6 +10,7 @@ type FeatureModel struct {
 	Name	*string			`gorm:"type:varchar(255);not null;" json:"name"`
 	Description	*string		`gorm:"type:text;not null;" json:"description"`
 	ProjectID uuid.UUID		`gorm:"type:uuid;not null;" json:"project_id"`
+	CreatorID uuid.UUID		`gorm:"type:uuid;not null;" json:"creator_id"`
 	GitBranchName *string	`gorm:"type:varchar(255);not null;" json:"git_branch_name"`
 	GitCommitID *string		`gorm:"type:varchar(255);not null;" json:"git_commit_id"`
 	CurrentState *string	`gorm:"type:feature_state;not null;default:'in_backlog';" json:"current_state"`

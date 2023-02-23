@@ -2,6 +2,8 @@ package repository
 
 import (
 	"hydra/db"
+	"hydra/handlers"
+	"hydra/middleware"
 	"log"
 	"os"
 
@@ -40,9 +42,9 @@ func (repo *Repository) InitRepo() {
 
 func (repo *Repository) SetupRoutes(app *fiber.App)  {
 	app.Use(logger.New())
+	app.Use(middleware.AuthMiddleWare)
 	api := app.Group("/v1")
 
-	api.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Howdy")
-	})
+	handlers.GenerateHandlers(&api, repo.DB)
+
 }
