@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"hydra/repository"
+	"os"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
@@ -15,15 +16,27 @@ func main() {
 	app := fiber.New()
 	repo.InitRepo()
 	repo.SetupRoutes(app)
-	app.Listen(":8080")
+	app.Listen("0.0.0.0:8080")
 
 
 }	
 
 func loadEnv() {
-	err := godotenv.Load(".env")
 
-	if err != nil {
-		fmt.Printf("An Error occured")
-	}
+	env := os.Getenv("GO_ENV")
+
+	fmt.Printf("The current environment is:: %s\n", env)
+
+	if env == "" {
+		err := godotenv.Load(".env")
+
+		if err != nil {
+			fmt.Printf("An Error occured")
+			return
+		}
+		return
+	} 
+	
+	fmt.Printf("\n\nNo Env file current env is:: %s\n\n", env)
+	
 }

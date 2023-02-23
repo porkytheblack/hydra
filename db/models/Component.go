@@ -9,6 +9,7 @@ type ComponentModel struct {
 	ID		uuid.UUID		`gorm:"type:uuid;not null;primaryKey;default:uuid_generate_v4();" json:"id"`
 	Title	*string			`gorm:"type:varchar(255);not null;" json:"title"`
 	Message	*string			`gorm:"type:text;not null;" json:"message"`
+	CreatorID uuid.UUID		`gorm:"type:uuid;not null;" json:"creator_id"`
 	Description	*string		`gorm:"type:text;not null;" json:"description"`
 	FeatureID uuid.UUID		`gorm:"type:uuid;not null;" json:"feature_id"`
 	ComponentType *string   `gorm:"type:component_type;not null;default:'feat'" json:"component_type"`
