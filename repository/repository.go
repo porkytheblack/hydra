@@ -20,7 +20,7 @@ func (repo *Repository) InitRepo() {
 
 	_db, err := db.NewConnection(&db.Config{
 		Host: os.Getenv("DB_HOST"),
-		Port: os.Getenv("PORT"),
+		Port: os.Getenv("DB_PORT"),
 		Password: os.Getenv("DB_PASSWORD"),
 		User: os.Getenv("DB_USER"),
 		DBName: os.Getenv("DB_NAME"),
